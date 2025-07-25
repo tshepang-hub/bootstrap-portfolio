@@ -25,7 +25,7 @@
  */
 
  .banner-wrap {
-  background-image: url(./assets/banner.png);
+  background-image: url(./assets/actual.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -36,10 +36,12 @@
   z-index: -1;
   height: 100%;
   width: 100%;
-  background: black;
-  opacity: 50%;
+  background: linear-gradient(120deg, #2c2c2c 0%, #111111 100%);
+  opacity: 0.18;
   position: absolute;
   top: 0;
+  left: 0;
+  border-radius: inherit;
 }
 
 .nav-masthead .nav-link {
@@ -65,4 +67,144 @@
   background-color: black;
   opacity: 90%;
   transition: all 0,5;
+}
+
+/* Sleeker card style */
+.card {
+  background: rgba(255,255,255,0.18);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.10), 0 1.5px 8px 0 rgba(161,196,253,0.10);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: 
+    transform 0.35s cubic-bezier(.77,0,.18,1), 
+    box-shadow 0.35s cubic-bezier(.77,0,.18,1),
+    border 0.25s;
+  will-change: transform;
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px);}
+  50% { transform: translateY(-12px);}
+  100% { transform: translateY(0px);}
+}
+
+.card:hover {
+  box-shadow: 0 12px 36px 0 rgba(31,38,135,0.18), 0 0 32px 0 #a1c4fd55;
+  border: 1.5px solid #a1c4fd;
+  transform: scale(1.045) translateY(-10px) rotateZ(-0.5deg);
+}
+
+/* Card image with elegant shadow */
+.card-img-top {
+  border-radius: 18px 18px 0 0;
+  object-fit: cover;
+  height: 210px;
+  box-shadow: 0 2px 12px 0 rgba(161,196,253,0.10);
+}
+
+.card-body {
+  background: rgba(255,255,255,0.28);
+  border-radius: 0 0 22px 22px;
+  padding: 1.7rem 1.2rem 1.2rem 1.2rem;
+  box-shadow: none;
+}
+
+/* Gradient overlay for depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 20%, #a1c4fd 0%, #c2e9fb 40%, transparent 80%),
+              radial-gradient(circle at 20% 80%, #fbc2eb 0%, #a6c1ee 40%, transparent 80%);
+  opacity: 0.45;
+}
+
+/* Floating blurred blob for extra interest */
+.blob {
+  position: fixed;
+  top: 60%;
+  left: 80%;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  opacity: 0.18;
+  filter: blur(90px);
+  border-radius: 50%;
+  z-index: 0;
+  animation: blobMove 12s ease-in-out infinite alternate;
+}
+@keyframes blobMove {
+  0% { transform: translate(0,0) scale(1);}
+  100% { transform: translate(-120px, -80px) scale(1.2);}
+}
+
+/* Animate section headings */
+h1 mark, h1.text-center mark {
+  background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #1a1a1a;
+  border-radius: 0.4em;
+  padding: 0.08em 0.5em;
+  font-weight: 600;
+  font-size: 1.2em;
+  box-shadow: 0 2px 12px 0 rgba(161,196,253,0.10);
+  animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Animate badges */
+.badge {
+  background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #222;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 0.03em;
+  box-shadow: 0 1px 6px 0 rgba(161,196,253,0.10);
+  border: none;
+  animation: popIn 0.7s cubic-bezier(.77,0,.18,1) both;
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+/* Slide-in for sections */
+.fade-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+.fade-section.animate__animated.animate__fadeInUp {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+/* Card glow on hover */
+.card:hover {
+  box-shadow: 0 12px 36px 0 rgba(31,38,135,0.18), 0 0 32px 0 #a1c4fd55;
+  border: 1.5px solid #a1c4fd;
+}
+
+/* Social icon refinement */
+.social-icon {
+  transition: color 0.25s, transform 0.25s;
+  color: #222 !important;
+  opacity: 0.85;
+}
+.social-icon:hover {
+  color: #a1c4fd !important;
+  animation: bounce 0.7s;
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Make sure overlay and blob are behind everything */
+.banner-wrap, .container, .card, .footer {
+  position: relative;
+  z-index: 1;
 }

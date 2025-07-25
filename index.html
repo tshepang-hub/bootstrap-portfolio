@@ -38,8 +38,9 @@
 
     <!-- Custom styles for this template -->
     <link href="styles.css" rel="stylesheet" />
+    <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   </head>
-
   <body class="bg-light">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -135,7 +136,7 @@
 
     <div class="banner-wrap vh-100 wv-100 d-flex align-items-center justify-content-center text-white">
       <div class="overlay"></div>
-      <header class="px-5 p-3 text-white fixed-top ">
+      <header class="px-5 p-3 text-white fixed-top animate__animated animate__fadeInDown" id="main-header">
         <div>
           <h3 class="float-md-start text-center">Portfolio</h3>
           <nav class="nav nav-masthead justify-content-center float-md-end">
@@ -148,10 +149,9 @@
           </nav>
         </div>
       </header>
-
-      <main class=" text-center">
-        <h1 class="display-1">I am Tshepang Baloyi.</h1>
-        <span id="typed" class="lead"></span>
+      <main class="text-center">
+        <h1 class="display-1 animate__animated animate__fadeInUp">I am Tshepang Baloyi.</h1>
+        <span id="typed" class="lead animate__animated animate__fadeIn animate__delay-1s"></span>
         <p class="lead">
           
         </p>
@@ -170,7 +170,7 @@
                 <div class="row">
                   <div class="col-md-5">
                     <img
-                      src="https://media.licdn.com/dms/image/v2/D4D03AQGff6cBJKm5mw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727814442014?e=1733356800&v=beta&t=j3owLWdE_R5XhQZIMpBgyj-27c9qL6auuweGXTdzOIA"
+                      src="/assets/me12.jpg"
                       class="img-fluid"
                       alt="..."/>
 
@@ -327,7 +327,7 @@
           </div>
         </div>
       </div>
-      <section id="contact">
+      <section id="contact" class="fade-section">
         <div class="container p-5">
           <div class="card p-3">
             <div class="card-body px-5 text-center">
@@ -337,15 +337,15 @@
                 for developers, or anyone looking to get web development done.
               </p>
               <a
-                class="fs-2"
+                class="fs-2 social-icon animate__animated"
                 href="https://www.instagram.com/tshepang_revenge/"
                 target="_blank"
                 ><i class="bi bi-instagram m-2"></i
               ></a>
               <a
-                class="fs-2"
+                class="fs-2 social-icon animate__animated"
                 href="https://www.linkedin.com/in/tshepang-baloyi-95487b324/" target="_blank"><i class="bi bi-linkedin m-2"></i></a>
-              <a class="fs-2"href="https://github.com/tshepang-hub"target="_blank"><i class="bi bi-github m-2"></i></a>
+              <a class="fs-2 social-icon animate__animated" href="https://github.com/tshepang-hub" target="_blank"><i class="bi bi-github m-2"></i></a>
   
               <form>
                 <div class="mb-3">
@@ -370,6 +370,7 @@
           </div>
         </div>
       </section>
+    </section>
 
       <footer class="bg-dark text-center text-white">
         <div class="container p-3">
@@ -377,12 +378,7 @@
         </div>
       </footer>
 
-      <script>
-        window.addEventListener("scroll", () => {
-          const header = document.querySelector(header)
-          console.log(header.classlist.toggle("", window.scrollY > 0))
-        })
-      </script>
+      
       <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
       <script>
         var typed = new Typed('#typed', {
@@ -392,6 +388,8 @@
           shuffle: true,
         });
       </script>
-
+     
+      <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
+      <script src="main.js"></script>
   </body>
 </html>
