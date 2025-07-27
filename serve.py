@@ -24,11 +24,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
 def open_browser():
-    webbrowser.open(f'http://localhost:{PORT}/modern-portfolio.html')
+    webbrowser.open(f'http://localhost:{PORT}/index.html')
 
 if __name__ == "__main__":
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
-        print(f"🚀 Portfolio server running at http://localhost:{PORT}/modern-portfolio.html")
+        print(f"🚀 Portfolio server running at http://localhost:{PORT}/index.html")
         print(f"📁 Serving from: {os.getcwd()}")
         print("Press Ctrl+C to stop the server")
         

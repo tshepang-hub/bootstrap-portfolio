@@ -33,7 +33,7 @@ const server = http.createServer((req, res) => {
     
     let filePath = '.' + req.url;
     if (filePath === './') {
-        filePath = './modern-portfolio.html';
+        filePath = './index.html';
     }
     
     const extname = String(path.extname(filePath)).toLowerCase();
@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`🚀 Portfolio server running at http://localhost:${PORT}/modern-portfolio.html`);
+    console.log(`🚀 Portfolio server running at http://localhost:${PORT}/index.html`);
     console.log(`📁 Serving from: ${process.cwd()}`);
     console.log('Press Ctrl+C to stop the server');
     
@@ -64,6 +64,6 @@ server.listen(PORT, () => {
     setTimeout(() => {
         const platform = process.platform;
         const command = platform === 'win32' ? 'start' : platform === 'darwin' ? 'open' : 'xdg-open';
-        exec(`${command} http://localhost:${PORT}/modern-portfolio.html`);
+        exec(`${command} http://localhost:${PORT}/index.html`);
     }, 1000);
 });
