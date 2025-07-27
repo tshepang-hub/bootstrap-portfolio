@@ -1,0 +1,257 @@
+/* Button Components */
+.btn-primary {
+    @apply inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-6 py-3 bg-transparent border-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 dark:hover:text-neutral-900 font-medium rounded-lg transition-all duration-200 transform hover:scale-105;
+}
+
+/* Navigation Links */
+.nav-link {
+    @apply text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 relative;
+}
+
+.nav-link.active {
+    @apply text-primary-600 dark:text-primary-400;
+}
+
+.nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 transition-all duration-200;
+    content: '';
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    @apply w-full;
+}
+
+/* Mobile Navigation Links */
+.mobile-nav-link {
+    @apply block text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 py-3 px-4 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-200;
+}
+
+/* Social Links */
+.social-link {
+    @apply inline-flex items-center justify-center w-12 h-12 bg-neutral-100 dark:bg-neutral-800 hover:bg-primary-600 dark:hover:bg-primary-600 text-neutral-600 dark:text-neutral-300 hover:text-white rounded-lg transition-all duration-200 transform hover:scale-110;
+}
+
+/* Skill Cards */
+.skill-card {
+    @apply glass-light rounded-xl p-6 text-center transition-all duration-300 hover:scale-105 cursor-pointer;
+}
+
+.skill-card:hover {
+    @apply shadow-xl;
+}
+
+/* Project Cards */
+.project-card {
+    @apply glass-light rounded-xl overflow-hidden group cursor-pointer;
+}
+
+.project-image {
+    @apply w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110;
+}
+
+.project-content {
+    @apply p-6;
+}
+
+.project-title {
+    @apply text-xl font-heading font-semibold mb-2 text-neutral-900 dark:text-neutral-100;
+}
+
+.project-description {
+    @apply text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed;
+}
+
+.project-tech {
+    @apply flex flex-wrap gap-2 mb-4;
+}
+
+.tech-tag {
+    @apply px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm rounded-full;
+}
+
+.project-links {
+    @apply flex space-x-3;
+}
+
+.project-link {
+    @apply inline-flex items-center px-4 py-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-primary-600 hover:text-white text-neutral-600 dark:text-neutral-300 rounded-lg transition-all duration-200 text-sm font-medium;
+}
+
+/* Form Styles */
+input:focus,
+textarea:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-opacity-50;
+}
+
+/* Notification Styles */
+.notification {
+    @apply fixed top-4 right-4 z-50 max-w-sm w-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg p-4 transform transition-all duration-300;
+}
+
+.notification.success {
+    @apply border-accent-500 bg-accent-50 dark:bg-accent-900/20;
+}
+
+.notification.error {
+    @apply border-red-500 bg-red-50 dark:bg-red-900/20;
+}
+
+.notification.info {
+    @apply border-primary-500 bg-primary-50 dark:bg-primary-900/20;
+}
+
+.notification-enter {
+    @apply translate-x-full opacity-0;
+}
+
+.notification-exit {
+    @apply translate-x-full opacity-0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary {
+        @apply w-full justify-center;
+    }
+    
+    .skill-card {
+        @apply p-4;
+    }
+    
+    .project-content {
+        @apply p-4;
+    }
+}
+
+/* Loading animation for dynamic content */
+.loading {
+    @apply animate-pulse;
+}
+
+.loading .skill-card {
+    @apply bg-neutral-200 dark:bg-neutral-800;
+}
+
+.loading .project-card {
+    @apply bg-neutral-200 dark:bg-neutral-800;
+}
+
+/* Smooth scrolling for Safari */
+@supports (-webkit-appearance: none) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Custom focus styles for accessibility */
+*:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        @apply text-black bg-white;
+    }
+    
+    .glass,
+    .glass-light {
+        @apply bg-white border-gray-300;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .glass,
+    .glass-light {
+        @apply border-2 border-current;
+    }
+    
+    .btn-primary {
+        @apply border-2 border-current;
+    }
+    
+    .btn-secondary {
+        @apply border-2 border-current;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .animate-float,
+    .animate-pulse-slow,
+    .animate-bounce {
+        animation: none !important;
+    }
+}
+
+/* Dark mode enhancements */
+.dark {
+    color-scheme: dark;
+}
+
+.dark img {
+    filter: brightness(0.9);
+}
+
+.dark .project-image {
+    filter: brightness(0.85) contrast(1.1);
+}
+
+/* Selection styles */
+::selection {
+    @apply bg-primary-600 text-white;
+}
+
+.dark ::selection {
+    @apply bg-primary-400 text-neutral-900;
+}
+
+/* Custom utilities for specific elements */
+.text-gradient {
+    background: linear-gradient(135deg, theme('colors.primary.600'), theme('colors.accent.500'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .text-gradient {
+    background: linear-gradient(135deg, theme('colors.primary.400'), theme('colors.accent.400'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced hover effects for interactive elements */
+.interactive-hover {
+    @apply transition-all duration-200 hover:scale-105 hover:shadow-lg;
+}
+
+/* Backdrop blur fallback for older browsers */
+@supports not (backdrop-filter: blur(16px)) {
+    .glass {
+        @apply bg-white/90 dark:bg-neutral-900/90;
+    }
+    
+    .glass-light {
+        @apply bg-white/95 dark:bg-neutral-800/95;
+    }
+}
