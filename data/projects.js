@@ -2,6 +2,17 @@
 const projects = [
     {
         id: 1,
+        title: 'HealthSpace Job Portal',
+        description: 'A comprehensive job portal platform built with modern web technologies, featuring job listings, user authentication, application management, and responsive design for healthcare professionals.',
+        image: 'assets/banner.png',
+        technologies: ['React', 'Next.js', 'TypeScript', 'TailwindCSS', 'Node.js', 'MongoDB'],
+        liveUrl: 'https://healthspacejob-portral-frontend.vercel.app',
+        githubUrl: 'https://github.com/tshepang-hub/Healthspacejob-portral-frontend',
+        featured: true,
+        priority: true
+    },
+    {
+        id: 2,
         title: 'Netflix Landing Page Clone',
         description: 'A responsive recreation of Netflix\'s homepage with modern design principles, featuring hero sections, interactive elements, and mobile-first approach.',
         image: 'assets/img123.jpg',
@@ -11,7 +22,7 @@ const projects = [
         featured: true
     },
     {
-        id: 2,
+        id: 3,
         title: 'Tesla Landing Page',
         description: 'A sleek and modern landing page inspired by Tesla\'s design language, showcasing clean aesthetics and smooth scrolling interactions.',
         image: 'assets/banner.png',
@@ -21,7 +32,7 @@ const projects = [
         featured: true
     },
     {
-        id: 3,
+        id: 4,
         title: 'YouTube Clone Interface',
         description: 'A functional YouTube interface clone featuring video listings, responsive grid layouts, and interactive navigation components.',
         image: 'assets/actual.jpg',
@@ -31,7 +42,7 @@ const projects = [
         featured: true
     },
     {
-        id: 4,
+        id: 5,
         title: 'Google Keep Clone',
         description: 'A note-taking application inspired by Google Keep, featuring add, edit, delete functionality with local storage persistence.',
         image: 'assets/me12.jpg',
@@ -41,7 +52,7 @@ const projects = [
         featured: false
     },
     {
-        id: 5,
+        id: 6,
         title: 'Twitter Interface Clone',
         description: 'A modern Twitter-like interface with responsive design, featuring tweet composition, timeline, and social interaction elements.',
         image: 'assets/banner.png',
@@ -67,8 +78,12 @@ function renderProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
 
-    // Show featured projects first, then others
-    const sortedProjects = projects.sort((a, b) => b.featured - a.featured);
+    // Show priority project first, then featured projects, then others
+    const sortedProjects = projects.sort((a, b) => {
+        if (a.priority && !b.priority) return -1;
+        if (!a.priority && b.priority) return 1;
+        return b.featured - a.featured;
+    });
 
     projectsGrid.innerHTML = sortedProjects.map((project, index) => `
         <div class="project-card glass-light rounded-2xl overflow-hidden shadow-lg" 
@@ -88,8 +103,15 @@ function renderProjects() {
                     <i data-lucide="code" class="w-16 h-16 text-primary-600 dark:text-primary-400"></i>
                 </div>
                 
-                <!-- Featured badge -->
-                ${project.featured ? `
+                <!-- Priority/Featured badge -->
+                ${project.priority ? `
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-gradient-to-r from-accent-500 to-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+                            <i data-lucide="star" class="w-3 h-3 inline mr-1"></i>
+                            Latest Project
+                        </span>
+                    </div>
+                ` : project.featured ? `
                     <div class="absolute top-4 left-4">
                         <span class="bg-accent-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Featured

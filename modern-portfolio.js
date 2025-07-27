@@ -17,7 +17,8 @@ const GITHUB_CONFIG = {
     cacheKey: 'github_repos_cache',
     cacheExpiry: 30 * 60 * 1000, // 30 minutes
     maxRepos: 12,
-    excludeRepos: ['tshepang-hub', 'tshepang-hub.github.io'] // repos to exclude
+    excludeRepos: ['tshepang-hub', 'tshepang-hub.github.io'], // repos to exclude
+    priorityRepos: ['Healthspacejob-portral-frontend'] // repos to show first
 };
 
 // Technology icon mapping
@@ -281,6 +282,19 @@ function displayProjects(repos) {
     
     if (!container) return;
 
+    // Sort repos to prioritize specific projects
+    const sortedRepos = repos.sort((a, b) => {
+        // Check if repo is in priority list
+        const aPriority = GITHUB_CONFIG.priorityRepos.includes(a.name);
+        const bPriority = GITHUB_CONFIG.priorityRepos.includes(b.name);
+        
+        if (aPriority && !bPriority) return -1;
+        if (!aPriority && bPriority) return 1;
+        
+        // Then sort by stars/updated date
+        return b.stargazers_count - a.stargazers_count;
+    });
+
     // Hide loading state
     loading.classList.add('hidden');
     container.classList.remove('hidden');
@@ -288,13 +302,13 @@ function displayProjects(repos) {
     // Show statistics
     if (stats) {
         stats.classList.remove('hidden');
-        displayProjectStats(repos);
+        displayProjectStats(sortedRepos);
     }
 
     // Clear existing content
     container.innerHTML = '';
 
-    repos.forEach(repo => {
+    sortedRepos.forEach(repo => {
         const projectCard = createProjectCard(repo);
         container.appendChild(projectCard);
     });
@@ -348,7 +362,9 @@ function animateNumber(elementId, targetValue) {
 // Create project card
 function createProjectCard(repo) {
     const card = document.createElement('div');
-    card.className = 'github-project-card project-card glass rounded-xl overflow-hidden';
+    const isPriority = GITHUB_CONFIG.priorityRepos.includes(repo.name);
+    
+    card.className = `github-project-card project-card glass rounded-xl overflow-hidden ${isPriority ? 'ring-2 ring-primary-500 dark:ring-primary-400' : ''}`;
     card.dataset.languages = getProjectLanguages(repo).join(',').toLowerCase();
 
     const thumbnail = getThumbnailUrl(repo);
@@ -357,6 +373,14 @@ function createProjectCard(repo) {
 
     card.innerHTML = `
         <div class="project-image relative overflow-hidden h-48">
+            ${isPriority ? `
+                <div class="absolute top-4 left-4 z-10">
+                    <span class="bg-gradient-to-r from-accent-500 to-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+                        <i data-lucide="star" class="w-3 h-3 inline mr-1"></i>
+                        Latest Project
+                    </span>
+                </div>
+            ` : ''}
             ${thumbnail ? 
                 `<img src="${thumbnail}" alt="${repo.name}" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML = getDefaultThumbnail('${repo.name}')">` :
                 getDefaultThumbnail(repo.name)
