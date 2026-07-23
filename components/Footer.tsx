@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-neutral-600 dark:text-neutral-400">
-            © {new Date().getFullYear()} Tshepang Baloyi&apos;s Portfolio. Built with ❤️ using
+            © {new Date().getFullYear()} Tshepang Baloyi. Built with ❤️ using
             Next.js &amp; TailwindCSS
           </p>
         </div>
