@@ -28,7 +28,24 @@ npm start
 
 ## Deploying
 
-The site deploys to [Vercel](https://vercel.com) with zero configuration: just import the GitHub repository and Vercel auto-detects Next.js.
+### Vercel (recommended for Next.js)
+
+Import the GitHub repository at [vercel.com](https://vercel.com). Vercel auto-detects Next.js and deploys with zero configuration.
+
+### Netlify
+
+This repo includes a `netlify.toml` with the official `@netlify/plugin-nextjs` plugin. After pushing, Netlify should:
+
+1. Run `npm run build`
+2. Serve the app through the Next.js runtime (not as static files)
+
+If you still see a 404 after pushing, open your Netlify site settings and confirm:
+
+- **Build command:** `npm run build`
+- **Publish directory:** leave blank (the plugin sets this automatically)
+- **Node version:** 18 or higher
+
+Do not set the publish directory to `.` or `public`. That was for the old static HTML site.
 
 ## Project Structure
 
