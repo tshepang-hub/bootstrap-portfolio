@@ -26,26 +26,18 @@ npm run build
 npm start
 ```
 
-## Deploying
+## Deploying on Vercel
 
-### Vercel (recommended for Next.js)
+This project is set up for [Vercel](https://vercel.com), which is built for Next.js and needs no extra config.
 
-Import the GitHub repository at [vercel.com](https://vercel.com). Vercel auto-detects Next.js and deploys with zero configuration.
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import `tshepang-hub/bootstrap-portfolio` from GitHub
+3. Leave all build settings as default (Vercel auto-detects Next.js)
+4. Click **Deploy**
 
-### Netlify
+Every push to your main branch will redeploy automatically.
 
-This repo includes a `netlify.toml` with the official `@netlify/plugin-nextjs` plugin. After pushing, Netlify should:
-
-1. Run `npm run build`
-2. Serve the app through the Next.js runtime (not as static files)
-
-If you still see a 404 after pushing, open your Netlify site settings and confirm:
-
-- **Build command:** `npm run build`
-- **Publish directory:** leave blank (the plugin sets this automatically)
-- **Node version:** 18 or higher
-
-Do not set the publish directory to `.` or `public`. That was for the old static HTML site.
+If your custom domain was on Netlify, update DNS in your domain provider to point to Vercel instead (Vercel shows the exact records under Project Settings → Domains).
 
 ## Project Structure
 
