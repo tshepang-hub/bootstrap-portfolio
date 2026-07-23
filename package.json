@@ -1,12 +1,26 @@
 {
-  "name": "portfolio-server",
-  "version": "1.0.0",
-  "description": "Simple server for portfolio testing",
-  "main": "server.js",
+  "name": "tshepang-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Tshepang Baloyi - Full Stack Developer Portfolio built with Next.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "keywords": ["portfolio", "server"],
-  "author": "Portfolio Owner"
+  "dependencies": {
+    "lucide-react": "^0.525.0",
+    "next": "^15.4.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.0"
+  }
 }
