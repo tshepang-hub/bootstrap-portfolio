@@ -17,7 +17,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Tshepang Baloyi's Portfolio",
   description:
-    "Tshepang Baloyi's portfolio. Full Stack Developer passionate about creating innovative digital experiences with modern web technologies.",
+    "Full Stack Developer portfolio showcasing projects, skills, and experience. Built with Next.js, React, and TypeScript.",
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>",
   },

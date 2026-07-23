@@ -31,7 +31,7 @@ npm start
 This project is set up for [Vercel](https://vercel.com), which is built for Next.js and needs no extra config.
 
 1. Go to [vercel.com/new](https://vercel.com/new)
-2. Import `tshepang-hub/bootstrap-portfolio` from GitHub
+2. Import `tshepang-hub/bootstrap-portfolio` from GitHub (live at [tshepang-baloyis-portfolio.vercel.app](https://tshepang-baloyis-portfolio.vercel.app))
 3. Leave all build settings as default (Vercel auto-detects Next.js)
 4. Click **Deploy**
 
