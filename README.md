@@ -1,4 +1,4 @@
-# Tshepang Baloyi | Portfolio
+# Tshepang Baloyi's Portfolio
 
 Personal portfolio website built with **Next.js (App Router)**, **TypeScript**, and **TailwindCSS**.
 

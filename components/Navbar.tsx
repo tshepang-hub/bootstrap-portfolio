@@ -63,9 +63,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <a
             href="#home"
-            className="text-2xl font-heading font-bold text-primary-600 dark:text-primary-400"
+            className="text-lg sm:text-xl font-heading font-bold text-primary-600 dark:text-primary-400"
           >
-            TB
+            Tshepang Baloyi
           </a>
 
           {/* Desktop navigation */}

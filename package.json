@@ -2,7 +2,7 @@
   "name": "tshepang-portfolio",
   "version": "2.0.0",
   "private": true,
-  "description": "Tshepang Baloyi - Full Stack Developer Portfolio built with Next.js",
+  "description": "Tshepang Baloyi's Portfolio - Full Stack Developer built with Next.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
